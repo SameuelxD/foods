@@ -6,31 +6,49 @@ body{
     background-color: rgba(30,29,43,255);
     font-family: 'Poppins', sans-serif;
 }
-.custom-navbar{
-    background-color: rgba(30,29,43,255);
-}
-.navbar-brand{
-    color: rgba(255,112,42,255);
-    margin-left: 5rem;
-    font-size: 3rem;
-}
-.navbar-brand:hover{
-    color: #F39C12;
-}
-.collapse {
-    display: flex;
-    justify-content: flex-end;
-}
-.nav-item{
-    margin-right: 4.5rem;
-}
-.nav-link{
-    font-size: 1.2rem;
+header {
+    height: 6.3rem;
+    background-color: rgba(30,29,43,255); /*Contenedor Padre Encabezado*/
+    padding: 0 3.13rem;
     color: #fff;
-}
-.nav-link:hover{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    text-transform: uppercase;
+    color: rgba(255,112,42,255);
+    font-weight: 200;
+  }
+  .logo:hover{
+    cursor: pointer;
+    color: #F39C12;
+  }
+  .menu a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 0.63rem;
+    transition: 0.4s;
+  }
+  .mostrar-menu,
+  .esconder-menu {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    transition: 0.4s;
+  }
+  .mostrar-menu {
+    order: 1;
+  }
+  .menu a:hover,
+  .mostrar-menu:hover,
+  .esconder-menu:hover {
     color: #B3B6B7;
 }
+  #check {
+    display: none;
+  }
 .home_title{
     font-size: 5rem;
     color: rgba(255,112,42,255);
@@ -40,9 +58,9 @@ body{
     color: #fff;
 }
 .btn{
-    width: 13rem;
+    width: 15rem;
     height: auto;
-    font-size: 1.3rem;
+    font-size: 2rem;
     background-color: rgba(255,112,42,255);
     color: #fff;
     border: none;
@@ -138,22 +156,22 @@ body{
     object-fit: cover;
 }
 .option_title{
-    font-size: 1.5rem ;
+    font-size: 1.2rem ;
     color: #000;
     text-align: center;
-    line-height: 2rem;
+    margin: 0;
 }
 .option_subtitle{
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: #000;
     text-align: center;
-    line-height: 1.5rem;
+    margin: 0;
 }
 .option_price{
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: rgba(255,112,42,255);
     text-align: center;
-    line-height: 1.5rem;
+    margin: 0;
 }
 .option_title{
     color: rgba(255,112,42,255);
@@ -239,24 +257,33 @@ body{
 
 
 @media screen and (max-width: 62rem) {
-    .collapse{
+    .mostrar-menu,
+    .esconder-menu {
+        display: block;
+    }
+    .menu {
+        position: fixed;
         width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        background-color: #2c2b47;
-    }
-    .nav-link{
-        margin: 0.5rem 0;
-        font-size: 1.5rem;
+        height: 100vh;
+        background: #2c2b47;
+        right: -100%;
+        top: 0;
         text-align: center;
+        padding: 100px 0;
+        z-index: 100;
+        transition: 0.8s;
     }
-    .navbar-brand{
-        font-size: 2.5rem;
+    .menu a {
+        display: block;
+        padding: 20px;
     }
-    .navbar-toggler{
-        background-color: #fff;
-        font-size: 1.2rem;
+    .esconder-menu {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+    #check:checked ~ .menu {
+        right: 0;
     }
     .container-main,.option-menu,.services-option{
         display: grid;
